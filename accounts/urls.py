@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
 
-from accounts.views import CriarUsuario
+from accounts.views import CriarUsuario, UserLogin, IndexView
 
 urlpatterns = [
-    # path('login/', Logar, name='login'),
+    path('login/', UserLogin.as_view(), name='login'),
     path('cadastrar/', CriarUsuario.as_view(), name='cadastrar'),
-    # path('index', IndexView.as_view(), name='index'),
+    path('index', IndexView.as_view(), name='index'),
 ]

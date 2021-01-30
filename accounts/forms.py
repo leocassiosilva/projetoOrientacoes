@@ -1,4 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django import forms
 
 from .models import CustomUsuario
 
@@ -6,7 +7,7 @@ from .models import CustomUsuario
 class CustomUsuarioCriarForm(UserCreationForm):
     class Meta:
         model = CustomUsuario
-        fields = ('username', 'first_name', 'last_name', 'fone')
+        fields = ('username', 'first_name', 'last_name','matricula')
         labels = {'username': 'Username/E-mail'}
 
     def save(self, commit=True):
@@ -23,4 +24,4 @@ class CustomUsuarioCriarForm(UserCreationForm):
 class CustomUsuarioChangeForm(UserChangeForm):
     class Meta:
         model: CustomUsuario
-        fields = ('first_name', 'last_name', 'fone')
+        fields = ('first_name', 'last_name')
