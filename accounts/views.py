@@ -7,7 +7,7 @@ from django.views.generic.edit import ModelFormMixin, FormView
 
 from accounts.forms import CustomUsuarioCriarForm
 from accounts.models import CustomUsuario
-from django.contrib.auth.views import LoginView, PasswordResetView
+from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView
 
 
 class CriarUsuario(CreateView):
@@ -25,6 +25,10 @@ class UserLogin(LoginView):
 
 class PasswordReset(SuccessMessageMixin, PasswordResetView):
     template_name = 'accounts/password-reset.html'
+
+
+class PasswordResetDone(SuccessMessageMixin, PasswordResetDoneView):
+    template_name = 'registration/password_reset_done.html'
 
 
 class IndexView(TemplateView):
