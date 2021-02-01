@@ -7,7 +7,8 @@ from django.views.generic.edit import ModelFormMixin, FormView
 
 from accounts.forms import CustomUsuarioCriarForm
 from accounts.models import CustomUsuario
-from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView
+from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, \
+    PasswordResetCompleteView
 
 
 class CriarUsuario(CreateView):
@@ -29,6 +30,15 @@ class PasswordReset(SuccessMessageMixin, PasswordResetView):
 
 class PasswordResetDone(SuccessMessageMixin, PasswordResetDoneView):
     template_name = 'registration/password_reset_done.html'
+
+
+class PasswordResetConfirm(SuccessMessageMixin, PasswordResetConfirmView):
+    template_name = 'registration/password_reset_confirm.html'
+
+
+class PasswordResetCompleteView(SuccessMessageMixin, PasswordResetCompleteView):
+    success_message = 'Senha Alterada com sucesso!'
+    template_name = 'accounts/login.html'
 
 
 class IndexView(TemplateView):
