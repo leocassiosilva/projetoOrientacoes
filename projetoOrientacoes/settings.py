@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'accounts',
     'core',
+    'trabalho',
     'django.contrib.admin',
 ]
 
