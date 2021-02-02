@@ -25,13 +25,13 @@ class Area(models.Model):
         managed = True
 
 
-class TipoAtividade(models.Model):
-    id = models.AutoField(primary_key=True, db_column="id_tipo_atividade")
+class TipoTarefa(models.Model):
+    id = models.AutoField(primary_key=True, db_column="id_tipo_tarefa")
     nome = models.CharField(max_length=100)
 
     def __str__(self):
         return '{}'.format(self.nome)
 
     class Meta:
-        db_table = "tipo_atividade"
+        db_table = "tipo_tarefa"
         managed = True

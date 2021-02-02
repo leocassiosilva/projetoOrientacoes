@@ -1,6 +1,6 @@
 from django.db import models
 
-from core.models import Area, Tipo, TipoAtividade
+from core.models import Area, Tipo, TipoTarefa
 
 
 class Trabalho(models.Model):
@@ -30,7 +30,7 @@ class Tarefa(models.Model):
     descricao = models.TextField(blank=True, null=True)
     data_cadastro = models.DateField('Data de cadastro', auto_now_add=True)
     data_realizacao = models.DateField(blank=True, null=True, db_column="data_realizacao")
-    tipo_atividade = models.ForeignKey(TipoAtividade, models.DO_NOTHING, db_column='id_tipo', blank=True, null=True)
+    tipo_tarefa = models.ForeignKey(TipoTarefa, models.DO_NOTHING, db_column='id_tipo', blank=True, null=True)
 
     def __str__(self):
         return '{}'.format(self.nome)
