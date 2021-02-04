@@ -3,6 +3,7 @@ from django.db import models
 from core.models import Area, Tipo, TipoTarefa
 
 
+# Vamos aprender juntos kk!
 class Trabalho(models.Model):
     id = models.AutoField(primary_key=True, db_column="id_trabalho")
     nome = models.CharField(max_length=100)
