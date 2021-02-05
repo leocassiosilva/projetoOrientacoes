@@ -1,0 +1,65 @@
+{% extends 'cadastro-usuario.html' %}
+{% block title %}SiGO - Cadastro de Usuario{% endblock title %}
+{% block card-title %}Registre-se{% endblock card-title %}
+
+{% block content %}
+
+
+<form method="post" class="form" autocomplete="off">
+    {% csrf_token %}
+
+    <div class="form-row">
+        <div class="form-group col-lg-6 mb-3">
+            <label>Nome</label>
+            <input class="form-control" id="first_name" name="first_name"
+                   type="text" value="{{request.POST.first_name}}"
+                   placeholder="Digite seu primeiro nome"
+                   autocomplete="off" required>
+        </div>
+        <div class="form-group col-lg-6 mb-3">
+            <label>Sobrenome</label>
+            <input class="form-control" id="last_name" name="last_name"
+                   type="text" value="{{request.POST.last_name}}"
+                   placeholder="Digite o sobrenome"
+                   autocomplete="off" required>
+        </div>
+    </div>
+    <div class="form-row">
+
+        <div class="form-group col-lg-6 mb-3">
+            <label>E-mail</label>
+            <input class="form-control" id="username" name="username"
+                   type="email" value="{{request.POST.username}}"
+                   placeholder="Digite seu e-mail" autocomplete="off" required>
+        </div>
+
+        <div class="form-group col-lg-6 mb-3">
+            <label>Matricula</label>
+            <input class="form-control" id="matricula" name="matricula"
+                   type="text" value="{{request.POST.matricula}}"
+                   placeholder="Digite sua matricula" autocomplete="off" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+
+        <div class="form-group col-lg-6 mb-3">
+            <label>Senha</label>
+            <input class="form-control" id="password1" name="password1"
+                   type="password" value="{{request.POST.password1}}"
+                   placeholder="Digite sua senha"
+                   autocomplete="off" required>
+        </div>
+        <div class="form-group col-lg-6 mb-3">
+            <label>Confirmar Senha</label>
+            <input class="form-control" id="password2" name="password2"
+                   type="password" value="{{request.POST.password2}}"
+                   placeholder="Digite a sua senha novamente"
+                   autocomplete="off" required>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+
+
+{% endblock %}

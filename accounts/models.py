@@ -33,12 +33,11 @@ class UsuarioManager(BaseUserManager):
 # classe para customizar o usuario informando campos adicionais como email, telefone e matricula
 class CustomUsuario(AbstractUser):
     email = models.EmailField('E-mail', unique=True)
-    fone = models.CharField('Telefone', max_length=15)
     matricula = models.CharField('Matricula', unique=True, max_length=60)
     is_staff = models.BooleanField("Membro da equipe", default=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'fone']
+    REQUIRED_FIELDS = ['first_name', 'last_name']
 
     def __str__(self):
         return self.email
