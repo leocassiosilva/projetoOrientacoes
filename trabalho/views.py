@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 
 from trabalho.forms import TrabalhoModelForm
 from trabalho.models import Trabalho
@@ -19,3 +19,11 @@ class TrabalhoCreate(CreateView):
 
     def get_success_url(self):
         return reverse('index')
+
+
+class TrabalhoListView(ListView):
+    model = Trabalho
+
+    def get_queryset(self):
+        trabalhos = Trabalho.objects.all()
+        return trabalhos

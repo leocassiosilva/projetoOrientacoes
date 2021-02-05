@@ -18,7 +18,7 @@ class Trabalho(models.Model):
     tipo = models.ForeignKey(Tipo, models.DO_NOTHING, db_column='id_tipo', blank=True, null=True)
 
     def __str__(self):
-        return '{}'.format(self.nome)
+        return '{}'.format(self.nome, self.area)
 
     class Meta:
         db_table = "trabalho"
