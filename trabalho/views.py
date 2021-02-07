@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView
 
 from trabalho.forms import TrabalhoModelForm
 from trabalho.models import Trabalho
@@ -27,3 +27,11 @@ class TrabalhoListView(ListView):
     def get_queryset(self):
         trabalhos = Trabalho.objects.all()
         return trabalhos
+
+
+class TrabalhoUpdateView(UpdateView):
+    model = Trabalho
+    fields = ['nome', 'descricao','data_inicio']
+    template_name_suffix = '_update_form'
+
+
