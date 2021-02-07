@@ -25,13 +25,17 @@ class TrabalhoListView(ListView):
     model = Trabalho
 
     def get_queryset(self):
-        trabalhos = Trabalho.objects.all()
+        #trabalhos = Trabalho.objects.all()
+        trabalhos = Trabalho.objects.order_by('nome').filter(id_usuario=self.request.user)
+        #print(self.request.user)
         return trabalhos
 
 
 class TrabalhoUpdateView(UpdateView):
     model = Trabalho
-    fields = ['nome', 'descricao','data_inicio']
+    form_class = TrabalhoModelForm
     template_name_suffix = '_update_form'
 
+    def get_success_url(self):
+        return reverse('listar')
 

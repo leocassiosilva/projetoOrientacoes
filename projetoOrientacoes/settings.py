@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'accounts',
     'core',
     'trabalho',
+    'webpage',
     'django.contrib.admin',
 ]
 

@@ -16,7 +16,7 @@ class CriarUsuario(CreateView):
     model = CustomUsuario
     form_class = CustomUsuarioCriarForm
     template_name = 'accounts/new-user.html'
-    success_url = '/accounts/login'
+    success_url = '/webpage/login'
     success_message = 'Bem vindo! Faça login para começar '
 
 

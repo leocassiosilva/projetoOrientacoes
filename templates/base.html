@@ -13,10 +13,9 @@
 </head>
 
 <body>
-
 <section class="container" style="margin-top: 45px;">
     {% bootstrap_messages %}
-
+    <h5>{% block card-title %}{% endblock card-title %}</h5>
     {% block content %}
 
     {% endblock content %}
