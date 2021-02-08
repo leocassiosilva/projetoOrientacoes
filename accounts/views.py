@@ -2,14 +2,15 @@ from django.contrib.auth import logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
+from django.urls import reverse
 from django.views import View
 from django.views.generic import CreateView, TemplateView, RedirectView
-from django.views.generic.edit import ModelFormMixin, FormView
+from django.views.generic.edit import ModelFormMixin, FormView, UpdateView
 
 from accounts.forms import CustomUsuarioCriarForm
 from accounts.models import CustomUsuario
 from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, \
-    PasswordResetCompleteView
+    PasswordResetCompleteView, PasswordChangeView
 
 
 class CriarUsuario(CreateView):
@@ -20,9 +21,18 @@ class CriarUsuario(CreateView):
     success_message = 'Bem vindo! Faça login para começar '
 
 
+class UpdateUsuario(UpdateView):
+    model = CustomUsuario
+    fields = ('username', 'first_name', 'last_name', 'matricula')
+    template_name_suffix = '_update_form'
+
+    def get_success_url(self):
+        return reverse('index')
+
+
 class UserLogin(LoginView):
     template_name = 'accounts/login.html'
-    success_url = '/accounts/index'
+    success_url = '/webpage/index'
 
 
 class PasswordReset(SuccessMessageMixin, PasswordResetView):
@@ -40,6 +50,12 @@ class PasswordResetConfirm(SuccessMessageMixin, PasswordResetConfirmView):
 class PasswordResetCompleteView(SuccessMessageMixin, PasswordResetCompleteView):
     success_message = 'Senha Alterada com sucesso!'
     template_name = 'accounts/login.html'
+
+
+class PasswordChange(SuccessMessageMixin, PasswordChangeView):
+    template_name = 'accounts/password-change.html'
+    success_url = 'index'
+    success_message = "Senha alterada com sucesso!"
 
 
 class LogoutView(RedirectView):
