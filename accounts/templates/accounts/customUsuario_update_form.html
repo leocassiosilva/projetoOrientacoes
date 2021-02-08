@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}SiGO - Atualizar informações do usuario{% endblock title %}
+{% block card-title %}Atualizar {% endblock card-title %}
+
+{% block content %}
+
+
+<form method="post" class="form">
+    {% csrf_token %}
+
+    <div class="form-row">
+        <div class="form-group col-lg-6 mb-3">
+            <label>Nome</label>
+            <input class="form-control" id="first_name" name="first_name"
+                   type="text" value="{{ form.first_name.value }}"
+                   autocomplete="off" required>
+        </div>
+        <div class="form-group col-lg-6 mb-3">
+            <label>Sobrenome</label>
+            <input class="form-control" id="last_name" name="last_name"
+                   type="text" value="{{ form.last_name.value }}"
+                   autocomplete="off" required>
+        </div>
+    </div>
+    <div class="form-row">
+
+        <div class="form-group col-lg-6 mb-3">
+            <label>E-mail</label>
+            <input class="form-control" id="username" name="username"
+                   type="email" value="{{ form.username.value }}" autocomplete="off" required>
+        </div>
+
+        <div class="form-group col-lg-6 mb-3">
+            <label>Matricula</label>
+            <input class="form-control" id="matricula" name="matricula"
+                   type="text" value="{{ form.matricula.value }}" autocomplete="off" required>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Atualizar</button>
+</form>
+
+
+{% endblock %}
