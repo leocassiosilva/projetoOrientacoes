@@ -32,7 +32,7 @@ class UpdateUsuario(UpdateView):
 
 class UserLogin(LoginView):
     template_name = 'accounts/login.html'
-    success_url = '/webpage/index'
+    success_url = 'webpage/index'
 
 
 class PasswordReset(SuccessMessageMixin, PasswordResetView):
@@ -64,7 +64,3 @@ class LogoutView(RedirectView):
     def get(self, request, *args, **kwargs):
         logout(request)
         return super(LogoutView, self).get(self, request, *args, **kwargs)
-
-
-class IndexView(TemplateView):
-    template_name = 'accounts/index.html'

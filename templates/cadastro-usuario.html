@@ -16,6 +16,8 @@
 
 <section class="container" style="margin-top: 45px;">
     {% bootstrap_messages %}
+    {% include 'menssagem.html' %}
+
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="card">
@@ -31,7 +33,7 @@
                 </div>
 
                 <div class="card-footer text-muted text-center">
-                    Entrar | Recuperar Senha
+                    {% block login %}Cadastrar{% endblock login %}| <a href="/accounts/password-reset/">Recuperar Senha</a>
                 </div>
             </div>
         </div>

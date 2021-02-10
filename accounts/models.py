@@ -46,4 +46,5 @@ class CustomUsuario(AbstractUser):
         db_table = "usuario"
         managed = True
 
-    objects = UsuarioManager()
+    # Os objetos desses usuarios são gerenciados pelo UsuarioManager
+    objects = UsuarioManager() #Casos não especificar isso o gerenciador sera o do proprio django

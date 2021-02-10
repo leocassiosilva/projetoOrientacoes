@@ -12,8 +12,8 @@ class CustomUsuarioCriarForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super().save(commit=False)
-        user.set_password(self.cleaned_data["password1"])
-        user.email = self.cleaned_data["username"]
+        user.set_password(self.cleaned_data["password1"]) #recuperar os dados para criptografar a senha
+        user.email = self.cleaned_data["username"] #recuperar os dados referente ao e-mail
 
         if commit:
             user.save()

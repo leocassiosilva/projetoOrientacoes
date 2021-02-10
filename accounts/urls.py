@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.views import PasswordResetDoneView
 from django.urls import path, include
 
-from .views import CriarUsuario, UserLogin, IndexView, PasswordResetView, PasswordReset, PasswordResetDone, \
+from .views import CriarUsuario, UserLogin, PasswordResetView, PasswordReset, PasswordResetDone, \
     PasswordResetConfirm, PasswordResetCompleteView, LogoutView, UpdateUsuario, PasswordChange
 
 urlpatterns = [
