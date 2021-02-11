@@ -13,7 +13,7 @@ from django.contrib.auth.views import LoginView, PasswordResetView, PasswordRese
     PasswordResetCompleteView, PasswordChangeView
 
 
-class CriarUsuario(CreateView):
+class CriarUsuario(SuccessMessageMixin, CreateView):
     model = CustomUsuario
     form_class = CustomUsuarioCriarForm
     template_name = 'accounts/new-user.html'
@@ -21,7 +21,7 @@ class CriarUsuario(CreateView):
     success_message = 'Bem vindo! Faça login para começar '
 
 
-class UpdateUsuario(UpdateView):
+class UpdateUsuario(SuccessMessageMixin, UpdateView):
     model = CustomUsuario
     fields = ('username', 'first_name', 'last_name', 'matricula')
     template_name_suffix = '_update_form'
@@ -30,7 +30,7 @@ class UpdateUsuario(UpdateView):
         return reverse('index')
 
 
-class UserLogin(LoginView):
+class UserLogin(SuccessMessageMixin, LoginView):
     template_name = 'accounts/login.html'
     success_url = 'webpage/index'
 
