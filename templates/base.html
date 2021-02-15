@@ -29,9 +29,12 @@
         <div class="sidebar-heading"><img src="/static/img/logo_sidebar.png" class="img-fluid animated" alt=""></div>
         <div class="list-group list-group-flush bg-primary">
             <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Dashboard</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Shortcuts</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Overview</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Events</a>
+            <a href="{% url 'trabalho_cadastrar' %}" class="list-group-item list-group-item-action bg-dark text-white">Cadastrar
+                Trabalho</a>
+
+            <a href="{% url 'trabalho_listar' %}" class="list-group-item list-group-item-action bg-dark text-white">Listar
+                Trabalho</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Editar</a>
             <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Profile</a>
             <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Status</a>
         </div>
@@ -49,13 +52,13 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                    <li class="nav-item text-white">
+                        <a class="nav-link" href="accounts/logout/">Sair</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -73,16 +76,10 @@
             </div>
         </nav>
 
-        <div class="container-fluid">
-            <h1 class="mt-4">Simple Sidebar</h1>
-            <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on
-                larger screens. When toggled using the button below, the menu will change.</p>
-            <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is
-                optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which
-                will toggle the menu when clicked.</p>
+        <div class="container-fluid" style="margin-bottom:80px;">
             {% bootstrap_messages %}
             {% block content %}
-
+            {% block titlePagina %}{% endblock titlePagina %}
             {% endblock content %}
         </div>
 
@@ -100,6 +97,9 @@
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
+
+
+
 
 
 

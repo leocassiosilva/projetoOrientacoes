@@ -37,11 +37,11 @@ class TrabalhoUpdateView(UpdateView):
     template_name_suffix = '_update_form'
 
     def get_success_url(self):
-        return reverse('listar')
+        return reverse('trabalho_listar')
 
 
 class TrabalhoDeleteView(DeleteView):
     model = Trabalho
 
     def get_success_url(self):
-        return reverse('listar')
+        return reverse('trabalho_listar')

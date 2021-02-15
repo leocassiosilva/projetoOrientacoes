@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'core',
     'trabalho',
     'webpage',
+    'tarefa',
     'django.contrib.admin',
 ]
 
@@ -140,8 +141,7 @@ EMAIL_HOST_USER = 'sigoorientacoes@gmail.com'
 EMAIL_HOST_PASSWORD = '#'
 EMAIL_PORT = 587
 
-
-#Message
+# Message
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
     messages.INFO: 'alert-info',
