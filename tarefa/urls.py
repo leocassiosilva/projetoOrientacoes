@@ -1,6 +1,7 @@
 from django.urls import path, include
-#from .views import
+from .views import TarefaView
 
 urlpatterns = [
-    #path('cadastrar/', TrabalhoCreate.as_view(), name='trabalho_cadastrar'),
+    path('cadastrar/<str:token>', TarefaView.as_view(), name='tarefa_cadastrar'),
+
 ]
