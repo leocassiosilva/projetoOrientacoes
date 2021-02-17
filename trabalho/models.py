@@ -13,6 +13,7 @@ class Trabalho(models.Model):
     data_entrega = models.DateField(blank=True, null=True, db_column="data_entrega")
     # nome_aluno = models.CharField(max_length=255, blank=True, null=True)
     # email_aluno = models.EmailField('E-mail')
+    token = models.CharField(max_length=100)
     id_usuario = models.ForeignKey("accounts.CustomUsuario", on_delete=models.CASCADE, db_column="id_usuario")
     area = models.ForeignKey(Area, models.DO_NOTHING, db_column='id_area', blank=True, null=True)
     tipo = models.ForeignKey(Tipo, models.DO_NOTHING, db_column='id_tipo', blank=True, null=True)
