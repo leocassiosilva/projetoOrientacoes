@@ -46,6 +46,9 @@
             <label for="id_area">Area</label>
             <select class="form-control" name="area" id="id_area">
                 <option value="" selected="">---------</option>
+                {% for area in areas %}
+                <option value="{{ area.id }}">{{ area.nome }}</option>
+                {% endfor %}
             </select>
         </div>
 
@@ -53,7 +56,9 @@
             <label for="id_tipo">Tipo</label>
             <select class="form-control" name="tipo" id="id_tipo">
                 <option value="" selected="">---------</option>
-
+                {% for tipo in tipos %}
+                <option value="{{ tipo.id }}">{{ tipo.nome }}</option>
+                {% endfor %}
             </select>
         </div>
     </div>

@@ -5,7 +5,7 @@
 {% block content %}
 
 
-<form method="post" class="form" >
+<form method="post" class="form">
     {% csrf_token %}
     <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}">
     <div class="form-row">
@@ -37,7 +37,8 @@
 
         <div class="form-group col-lg-6 mb-3">
             <label for="id_data_entrega">Data entrega</label>
-            <input type="date" class="form-control" name="data_entrega" id="id_data_entrega" value="{{ form.data_inicio.value|date:'Y-m-d'}}">
+            <input type="date" class="form-control" name="data_entrega" id="id_data_entrega"
+                   value="{{ form.data_inicio.value|date:'Y-m-d'}}">
         </div>
     </div>
 
@@ -48,6 +49,11 @@
             <label for="id_area">Area</label>
             <select class="form-control" name="area" id="id_area">
                 <option value="" selected="">---------</option>
+                {% for field in form.area %}
+                <tr>
+                    <td>{{field}}</td>
+                </tr>
+                {% endfor %}
             </select>
         </div>
 
@@ -55,7 +61,11 @@
             <label for="id_tipo">Tipo</label>
             <select class="form-control" name="tipo" id="id_tipo">
                 <option value="" selected="">---------</option>
-
+                {% for field in form.tipo %}
+                <tr>
+                    <td>{{field}}</td>
+                </tr>
+                {% endfor %}
             </select>
         </div>
     </div>

@@ -20,8 +20,14 @@
         <td scope="row"> {{ tarefa.nome }}</td>
         <td scope="row">{{ tarefa.descricao }}</td>
         <td scope="row">
-
+            <div class="btn-group">
+                <button type="button" class="btn btn-success"><a style="color:#ffffff;"
+                                                                 href="{%url 'tarefa_update' tarefa.id%}">Editar</a>
+                </button>
+            </div>
+        </td>
     </tr>
+
     {% endfor %}
     </tbody>
 </table>

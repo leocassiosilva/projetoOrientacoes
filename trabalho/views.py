@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
+from core.models import Area, Tipo
 from trabalho.forms import TrabalhoModelForm
 from trabalho.models import Trabalho
 
@@ -12,6 +13,13 @@ class TrabalhoCreate(CreateView):
     model = Trabalho
     form_class = TrabalhoModelForm
     template_name = 'trabalho/new-trabalho.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['areas'] = list(Area.objects.all())
+        context['tipos'] = list(Tipo.objects.all())
+        return context
+
 
     def form_valid(self, form):
         trabalho = form.save(commit=False)
