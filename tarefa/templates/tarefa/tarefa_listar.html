@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}SiGO - Cadastro de Trabalhos{% endblock title %}
+{% block card-title %}Lista de Trabalhos{% endblock card-title %}
+
+{% block content %}
+<h1>Trabalhos</h1>
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Opções</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {%for tarefa in object_list%}
+
+    <tr>
+        <td scope="row"> {{ tarefa.nome }}</td>
+        <td scope="row">{{ tarefa.descricao }}</td>
+        <td scope="row">
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

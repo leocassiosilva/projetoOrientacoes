@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 
 from tarefa.forms import TarefaModelForm
 from tarefa.models import Tarefa
@@ -25,3 +25,14 @@ class TarefaView(CreateView):
 
     def get_success_url(self):
         return reverse('index')
+
+
+class TarefaListView(ListView):
+    model = Tarefa
+    template_name = 'tarefa/tarefa_listar.html'
+
+    def get_queryset(self):
+        token = self.kwargs.get("token")
+        trabalho_id = list(trabalho.id for trabalho in Trabalho.objects.filter(token=token))
+        tarefa = Tarefa.objects.filter(trabalho__in=trabalho_id)
+        return tarefa
