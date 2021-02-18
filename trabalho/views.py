@@ -2,7 +2,7 @@ from secrets import token_urlsafe
 
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
 from trabalho.forms import TrabalhoModelForm
 from trabalho.models import Trabalho
@@ -12,7 +12,6 @@ class TrabalhoCreate(CreateView):
     model = Trabalho
     form_class = TrabalhoModelForm
     template_name = 'trabalho/new-trabalho.html'
-
 
     def form_valid(self, form):
         trabalho = form.save(commit=False)
@@ -52,3 +51,8 @@ class TrabalhoDeleteView(DeleteView):
 
     def get_success_url(self):
         return reverse('trabalho_listar')
+
+
+class TrabalhoDetailView(DetailView):
+    model = Trabalho
+    fields = ['nome', 'descrição' 'area']
