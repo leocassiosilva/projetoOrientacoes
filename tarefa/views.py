@@ -1,6 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
 from django.urls import reverse
 from django.views.generic import CreateView, ListView, UpdateView
 
@@ -20,7 +19,6 @@ class TarefaView(CreateView):
         context = super().get_context_data(**kwargs)
         context['tipo_tarefas'] = list(TipoTarefa.objects.all())
         return context
-
 
     def form_valid(self, form):
         tarefa = form.save(commit=False)
@@ -51,5 +49,11 @@ class TarefaUpdateView(UpdateView):
     template_name_suffix = '_update_form'
 
     def get_success_url(self):
-        return reverse('trabalho_listar')
+        id_tarefa = self.kwargs.get("pk")
+        tarefa_id = list(tarefa.trabalho.id for tarefa in Tarefa.objects.filter(id=id_tarefa))
+        trabalho = Trabalho.objects.filter(id__in=tarefa_id)
 
+        for member in trabalho.iterator():
+            token = member.token
+
+        return reverse('tarefa_listar', args=[token])
