@@ -63,4 +63,4 @@ class TrabalhoDeleteView(DeleteView):
 
 class TrabalhoDetailView(DetailView):
     model = Trabalho
-    fields = ['nome', 'descrição' 'area']
+    fields = ['nome', 'descrição' ,'area']

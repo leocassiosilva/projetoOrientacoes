@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.urls import reverse
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
 from core.models import TipoTarefa
 from tarefa.forms import TarefaModelForm
@@ -57,3 +57,22 @@ class TarefaUpdateView(UpdateView):
             token = member.token
 
         return reverse('tarefa_listar', args=[token])
+
+
+class TarefaDeleteView(DeleteView):
+    model = Tarefa
+
+    def get_success_url(self):
+        id_tarefa = self.kwargs.get("pk")
+        tarefa_id = list(tarefa.trabalho.id for tarefa in Tarefa.objects.filter(id=id_tarefa))
+        trabalho = Trabalho.objects.filter(id__in=tarefa_id)
+
+        for member in trabalho.iterator():
+            token = member.token
+
+        return reverse('tarefa_listar', args=[token])
+
+
+class TarefaDetailView(DetailView):
+    model = Tarefa
+    fields = ['nome', 'descrição', 'data_realizacao', 'tipo_tarefa', 'trabalho']
