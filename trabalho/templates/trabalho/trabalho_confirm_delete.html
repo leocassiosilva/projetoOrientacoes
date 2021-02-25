@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    <h2>Você realmente tem o desejo de excluir o Trabalho {{ object }}?</h2>
-    {{form}}
-    <input class="btn btn-danger" type="submit" value="Confirmar">
-</form>    
-
+{% block titlePagina %}<h1 class="mt-4">Confirmar exclusão</h1>{% endblock titlePagina %}
+<div class="card" style="margin-top:20px;">
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <h2>Você realmente tem o desejo de excluir o Trabalho {{ object }}?</h2>
+            {{form}}
+            <input class="btn btn-danger" type="submit" value="Confirmar">
+        </form>
+    </div>
+</div>
 {% endblock %}

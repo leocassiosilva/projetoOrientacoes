@@ -25,18 +25,15 @@
 <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-primary bg-dark text-white" id="sidebar-wrapper">
-        <div class="sidebar-heading"><img src="/static/img/logo_sidebar.png" class="img-fluid animated" alt=""></div>
+    <div class="bg-primary text-white" id="sidebar-wrapper">
+        <div class="sidebar-heading"><img src="/static/img/logo_navbar1.png" class="img-fluid animated" alt=""></div>
         <div class="list-group list-group-flush bg-primary">
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Dashboard</a>
-            <a href="{% url 'trabalho_cadastrar' %}" class="list-group-item list-group-item-action bg-dark text-white">Cadastrar
+            <a href="#" class="list-group-item list-group-item-action bg-primary text-white">Dashboard</a>
+            <a href="{% url 'trabalho_cadastrar' %}" class="list-group-item list-group-item-action bg-primary text-white">Cadastrar
                 Trabalho</a>
 
-            <a href="{% url 'trabalho_listar' %}" class="list-group-item list-group-item-action bg-dark text-white">Listar
-                Trabalho</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Editar</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Profile</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Status</a>
+            <a href="{% url 'trabalho_listar' %}" class="list-group-item list-group-item-action bg-primary text-white">Meus
+                Trabalhos</a>
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -97,17 +94,6 @@
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
-
-
-
-
-
-
-
-
-
-
-
 </script>
 <!-- Menu Toggle Script -->
 

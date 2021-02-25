@@ -5,47 +5,51 @@
 {% block content %}
 
 {% block titlePagina %}<h1 class="mt-4">Cadastrar Tarefa</h1>{% endblock titlePagina %}
-<form method="post" class="form" autocomplete="off">
-    {% csrf_token %}
-    <div class="form-row">
-        <div class="form-group col-lg-12 mb-3">
-            <label>Nome</label>
-            <input class="form-control" id="id_nome" name="nome"
-                   type="text" value="{{request.POST.nome}}"
-                   placeholder="Digite o nome tarefa"
-                   required>
-        </div>
+<div class="card" style="margin-top:20px;">
+    <div class="card-body">
+        <form method="post" class="form" autocomplete="off">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-lg-12 mb-3">
+                    <label>Nome</label>
+                    <input class="form-control" id="id_nome" name="nome"
+                           type="text" value="{{request.POST.nome}}"
+                           placeholder="Digite o nome tarefa"
+                           required>
+                </div>
+            </div>
+
+            <!--<p>{{ user.id }}</p>-->
+            <div class="form-row">
+                <div class="form-group col-lg-12 mb-3">
+                    <label for="id_descricao">Descricao</label>
+
+                    <textarea class="form-control" name="descricao" cols="40" rows="10" id="id_descricao"
+                              required> </textarea>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-lg-6 mb-3">
+
+                    <label for="id_data_realizacao">Data realização</label>
+                    <input type="date" class="form-control" name="data_realizacao" id="id_data_realizacao">
+                </div>
+
+                <div class="form-group col-lg-6 mb-3">
+                    <label for="id_tipo_tarefa">Tipo da Tarefa</label>
+                    <select class="form-control" name="tipo_tarefa" id="id_tipo_tarefa">
+                        <option value="" selected="">---------</option>
+                        {% for tipo in tipo_tarefas %}
+                        <option value="{{ tipo.id }}">{{ tipo.nome }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
     </div>
-
-    <!--<p>{{ user.id }}</p>-->
-    <div class="form-row">
-        <div class="form-group col-lg-12 mb-3">
-            <label for="id_descricao">Descricao</label>
-
-            <textarea class="form-control" name="descricao" cols="40" rows="10" id="id_descricao" required> </textarea>
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group col-lg-6 mb-3">
-
-            <label for="id_data_realizacao">Data realização</label>
-            <input type="date" class="form-control" name="data_realizacao" id="id_data_realizacao">
-        </div>
-
-        <div class="form-group col-lg-6 mb-3">
-            <label for="id_tipo_tarefa">Tipo da Tarefa</label>
-            <select class="form-control" name="tipo_tarefa" id="id_tipo_tarefa">
-                <option value="" selected="">---------</option>
-                {% for tipo in tipo_tarefas %}
-                <option value="{{ tipo.id }}">{{ tipo.nome }}</option>
-                {% endfor %}
-            </select>
-        </div>
-
-    </div>
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
-</form>
-
+</div>
 
 {% endblock %}
