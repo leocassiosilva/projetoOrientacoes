@@ -7,6 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}SiGO{% endblock title %}</title>
+    <link href="{% static 'css/all.css' %}" rel="stylesheet">
+
     {% bootstrap_css %}
 
 
@@ -30,9 +32,10 @@
                     {% endblock content %}
 
                 </div>
-
                 <div class="card-footer text-muted text-center">
-                    {% block login %}Cadastrar{% endblock login %}| <a href="/accounts/password-reset/">Recuperar Senha</a>
+                    {% block login %}Cadastrar{% endblock login %}| <a
+                        href="/accounts/password-reset/">Recuperar
+                    Senha</a>
                 </div>
             </div>
         </div>

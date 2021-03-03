@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'webpage',
     'tarefa',
     'task',
+    'relatorio',
     'django.contrib.admin',
 ]
 
