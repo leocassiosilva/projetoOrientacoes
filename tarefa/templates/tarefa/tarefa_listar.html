@@ -3,7 +3,9 @@
 {% block card-title %}Lista de Trabalhos{% endblock card-title %}
 
 {% block content %}
-{% block titlePagina %}<h1 class="mt-4">Lista de Tarefas</h1>{% endblock titlePagina %}
+{%for trab in trabalho%}
+{% block titlePagina %}<h1 class="mt-4">Lista de Tarefas - {{ trab.nome }}</h1>{% endblock titlePagina %}
+{% endfor %}
 {%for tarefa in object_list%}
 <div class="card" style="margin-top:20px;">
     <div class="card-header">
@@ -16,19 +18,19 @@
 
         <div class="btn-group">
             <a class="btn btn-primary mr-3" style="color:#ffffff;"
-               href="{%url 'tarefa_update' tarefa.id%}">Editar</a>
-        </div>
-
-        <div class="btn-group">
-            <a class="btn btn-danger mr-3" style="color:#ffffff;" href="{%url 'tarefa_delete' tarefa.id%}">
-                Excluir</a>
+               href="{%url 'tarefa_update' tarefa.id%}"><i class="fas fa-edit"></i> Editar</a>
         </div>
 
         <div class="btn-group">
             <a class="btn btn-success mr-3" style="color:#ffffff;"
-               href="{%url 'tarefa_detalhe' tarefa.id%}">Detalhe
-                do trabalho
+               href="{%url 'tarefa_detalhe' tarefa.id%}"><i class="fas fa-search"></i> Detalhes
             </a>
+        </div>
+
+        <div class="btn-group">
+            <a class="btn btn-danger mr-3" style="color:#ffffff;" href="{%url 'tarefa_delete' tarefa.id%}"><i
+                    class="fas fa-trash-alt"> </i>
+                Excluir</a>
         </div>
     </div>
 </div>

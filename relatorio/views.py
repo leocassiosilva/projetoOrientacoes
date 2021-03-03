@@ -18,13 +18,13 @@ class GeneratePdf(View):
             'customer_name': 'Cooper Mann',
             'order_id': 1233434,
         }
-        pdf = render_to_pdf('pdf/invoice.html', data)
+        pdf = render_to_pdf('relatorio/invoice.html', data)
         return HttpResponse(pdf, content_type='application/pdf')
 
 
 class GeneratePDF(View):
     def get(self, request, *args, **kwargs):
-        template = get_template('invoice.html')
+        template = get_template('relatorio/invoice.html')
         context = {
             "invoice_id": 123,
             "customer_name": "John Cooper",
@@ -32,7 +32,7 @@ class GeneratePDF(View):
             "today": "Today",
         }
         html = template.render(context)
-        pdf = render_to_pdf('invoice.html', context)
+        pdf = render_to_pdf('relatorio/invoice.html', context)
         if pdf:
             response = HttpResponse(pdf, content_type='application/pdf')
             filename = "Invoice_%s.pdf" % ("12341231")

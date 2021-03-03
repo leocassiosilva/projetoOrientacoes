@@ -18,6 +18,7 @@ class TarefaView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['tipo_tarefas'] = list(TipoTarefa.objects.all())
+
         return context
 
     def form_valid(self, form):
@@ -35,6 +36,12 @@ class TarefaView(CreateView):
 class TarefaListView(ListView):
     model = Tarefa
     template_name = 'tarefa/tarefa_listar.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        token = self.kwargs.get("token")
+        context['trabalho'] = list(Trabalho.objects.filter(token=token))
+        return context
 
     def get_queryset(self):
         token = self.kwargs.get("token")

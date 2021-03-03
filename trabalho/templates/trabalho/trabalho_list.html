@@ -16,36 +16,36 @@
 
         <div class="btn-group">
             <a class="btn btn-primary mr-3" style="color:#ffffff;"
-               href="{%url 'trabalho_update' trabalho.id%}">Editar</a>
-        </div>
-
-        <div class="btn-group">
-            <a class="btn btn-danger mr-3" style="color:#ffffff;" href="{%url 'trabalho_delete' trabalho.id%}">
-
-                Excluir</a>
-
-
+               href="{%url 'trabalho_update' trabalho.id%}"><i class="fas fa-edit"></i>Editar</a>
         </div>
 
         <div class="btn-group">
             <a class="btn btn-success mr-3" style="color:#ffffff;"
-               href="{%url 'trabalho_detalhe' trabalho.id%}">Detalhe
-                do trabalho
+               href="{%url 'trabalho_detalhe' trabalho.id%}"><i class="fas fa-search"></i> Detalhe
             </a>
         </div>
 
         <div class="btn-group">
             <a class="btn btn-success mr-3" style="color:#ffffff;"
-               href="{%url 'tarefa_cadastrar' trabalho.token%}">ADD
-                tarefa</a>
+               href="{%url 'tarefa_cadastrar' trabalho.token%}"><i class="fas fa-plus"></i> Tarefa</a>
         </div>
 
         <div class="btn-group">
-            <button type="button" class="btn btn-success"><a style="color:#ffffff;"
-                                                             href="{%url 'tarefa_listar' trabalho.token%}">Listar
-                tarefa</a>
-            </button>
+            <a class="btn btn-success mr-3" style="color:#ffffff;"
+               href="{%url 'tarefa_listar' trabalho.token%}"><i
+                    class="fas fa-list-alt"></i> Tarefa(s)</a>
+
         </div>
+
+        <div class="btn-group">
+
+            <a class="btn btn-danger mr-3" style="color:#ffffff;" href="{%url 'trabalho_delete' trabalho.id%}">
+                <i class="fas fa-trash-alt"></i>
+                Excluir</a>
+
+        </div>
+
+
     </div>
 </div>
 {% endfor %}
