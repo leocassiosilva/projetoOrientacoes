@@ -35,3 +35,15 @@ class TipoTarefa(models.Model):
     class Meta:
         db_table = "tipo_tarefa"
         managed = True
+
+
+class Status(models.Model):
+    id = models.AutoField(primary_key=True, db_column="id_status")
+    nome = models.CharField(max_length=100)
+
+    def __str__(self):
+        return '{}'.format(self.nome)
+
+    class Meta:
+        db_table = "status_trabalho"
+        managed = True
