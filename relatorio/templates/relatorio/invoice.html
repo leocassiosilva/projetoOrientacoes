@@ -1,8 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    <head>
-        <title>Title</title>
-        <style type="text/css">
+<head>
+    <title>Title</title>
+    <style type="text/css">
             body {
                 font-weight: 200;
                 font-size: 14px;
@@ -34,20 +34,23 @@
                 color: #333; /* old IE */
                 background-color: #fff; /* Modern Browsers */
             }
-        </style>
-    </head>
-    <body>
-        <div class='wrapper'>
-            <div class='header'>
-                <p class='title'>Invoice # </p>
-            </div>
-        <div>
+
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+    <div class='header'>
+        <p class='title'>Relatorio de trabalho</p>
+    </div>
+
+    <div>
         <div class='details'>
-            Bill to: <br/>
-            Amount:  <br/>
-            Date:
-            <hr class='hrItem' />
+            {% for trab in trabalhos%}
+            <h4>{{ trab.nome }}</h4>
+            <hr class='hrItem'/>
+            {% endfor %}
+
         </div>
     </div>
-    </body>
+</body>
 </html>

@@ -8,16 +8,14 @@ from django.template.loader import get_template
 from django.views.generic import View
 
 from projetoOrientacoes.utils import render_to_pdf  # created in step 4
+from trabalho.models import Trabalho
 
 
 class GeneratePdf(View):
     def get(self, request, *args, **kwargs):
-        data = {
-            'today': datetime.date.today(),
-            'amount': 39.99,
-            'customer_name': 'Cooper Mann',
-            'order_id': 1233434,
-        }
+        trabalho = Trabalho.objects.order_by('nome').filter(id_usuario=self.request.user)
+        data = {'trabalhos': trabalho}
+
         pdf = render_to_pdf('relatorio/invoice.html', data)
         return HttpResponse(pdf, content_type='application/pdf')
 
@@ -25,6 +23,7 @@ class GeneratePdf(View):
 class GeneratePDF(View):
     def get(self, request, *args, **kwargs):
         template = get_template('relatorio/invoice.html')
+
         context = {
             "invoice_id": 123,
             "customer_name": "John Cooper",
