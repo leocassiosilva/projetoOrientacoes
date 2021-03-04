@@ -1,7 +1,9 @@
 from django.contrib.auth import logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.mail import send_mail
 from django.shortcuts import render
+from django.template.loader import render_to_string
 from django.urls import reverse
 from django.views import View
 from django.views.generic import CreateView, TemplateView, RedirectView
@@ -19,6 +21,15 @@ class CriarUsuario(SuccessMessageMixin, CreateView):
     template_name = 'accounts/new-user.html'
     success_url = '/accounts/login'
     success_message = 'Bem vindo! Faça login para começar '
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data["password1"])  # recuperar os dados para criptografar a senha
+        user.email = self.cleaned_data["username"]  # recuperar os dados referente ao e-mail
+
+        if commit:
+            user.save()
+        return user
 
 
 class UpdateUsuario(SuccessMessageMixin, UpdateView):

@@ -140,7 +140,7 @@ DEFAULT_FROM_EMAIL = 'Nome <sigoorientacoes@gmail.com>'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'sigoorientacoes@gmail.com'
-EMAIL_HOST_PASSWORD = '#'
+EMAIL_HOST_PASSWORD = 'Guga96299727'
 EMAIL_PORT = 587
 
 # Message

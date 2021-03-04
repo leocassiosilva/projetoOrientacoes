@@ -10,15 +10,7 @@ class CustomUsuarioCriarForm(UserCreationForm):
         fields = ('username', 'first_name', 'last_name','matricula')
         labels = {'username': 'Username/E-mail'}
 
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        user.set_password(self.cleaned_data["password1"]) #recuperar os dados para criptografar a senha
-        user.email = self.cleaned_data["username"] #recuperar os dados referente ao e-mail
 
-        if commit:
-            user.save()
-
-        return user
 
 
 class CustomUsuarioChangeForm(UserChangeForm):
