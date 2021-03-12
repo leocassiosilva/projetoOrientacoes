@@ -17,27 +17,36 @@
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{% static 'admin/css/simple-sidebar.css' %}">
-
-
-    {% bootstrap_css %}
+    <style>
+@list-group-item:hover {
+  background-color: yellow;
+}
+</style>
 </head>
 
 <body>
 
 
-
 <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-primary text-white" id="sidebar-wrapper">
-        <div class="sidebar-heading"><img src="/static/img/logo_navbar1.png" class="img-fluid animated" alt=""></div>
-        <div class="list-group list-group-flush bg-primary">
-            <a href="#" class="list-group-item list-group-item-action bg-primary text-white">Dashboard</a>
-            <a href="{% url 'trabalho_cadastrar' %}" class="list-group-item list-group-item-action bg-primary text-white"><i class="fas fa-plus"></i> Cadastrar
+    <div class="text-white" id="sidebar-wrapper" style="background-color:#026aa7;">
+        <div class="sidebar-heading"><img src="/static/img/logo.png" class="img-fluid animated" alt=""></div>
+        <div class="list-group list-group-flush bg-white">
+            <a href="#" class="list-group-item list-group-item-action text-white" style="background-color:#026aa7;">Dashboard</a>
+            <a href="{% url 'trabalho_cadastrar' %}"
+               class="list-group-item list-group-item-action text-white" style="background-color:#026aa7;"><i class="fas fa-plus"></i>
+                Cadastrar
                 Trabalho</a>
 
-            <a href="{% url 'trabalho_listar' %}" class="list-group-item list-group-item-action bg-primary text-white"><i class="fas fa-list-alt"></i> Meus
+            <a href="{% url 'trabalho_listar' %}"
+               class="list-group-item list-group-item-action text-white" style="background-color:#026aa7;"><i class="fas fa-list-alt"></i> Meus
                 Trabalhos</a>
+
+            <a href="{% url 'gerar_relatorio' %}"
+               class="list-group-item list-group-item-action text-white" style="background-color:#026aa7;" download><i class="fas fa-file-pdf"></i>
+                Relatorio de trabalhos </a>
+
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -56,22 +65,28 @@
             <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-home "></i>Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#"><i class="fas fa-home "></i> Home <span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-edit"></i>
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                class="fas fa-user-edit"></i>
                             Editar conta
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'atualizar' user.id%}"><i class="fas fa-user-circle fa-2x"></i>Atualizar conta</a>
-                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'password-change' %}"><i class="fas fa-key fa-2x"></i>Mudar senha</a>
+                            <a class="dropdown-item" href="{% url 'atualizar' user.id%}"><i
+                                    class="fas fa-user-circle fa-2x"></i> Atualizar conta</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'password-change' %}"><i class="fas fa-key fa-2x"></i>
+                                Mudar
+                                senha</a>
                             <div class="dropdown-divider"></div>
                         </div>
                     </li>
                     <li class="nav-item text-white">
-                        <a class="nav-link" href="{% url 'logout' %}" href="accounts/logout/"><i class="fas fa-sign-in-alt"></i>Sair</a>
+                        <a class="nav-link" href="{% url 'logout' %}" href="accounts/logout/"><i
+                                class="fas fa-sign-in-alt"></i> Sair</a>
                     </li>
                 </ul>
             </div>
@@ -98,6 +113,8 @@
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
+
+
 </script>
 <!-- Menu Toggle Script -->
 
