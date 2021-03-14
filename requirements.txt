@@ -1,4 +1,5 @@
 amqp==5.0.5
+arabic-reshaper==2.1.1
 asgiref==3.3.1
 beautifulsoup4==4.9.3
 billiard==3.6.3.0
@@ -10,11 +11,15 @@ click-repl==0.1.6
 dj-static==0.0.6
 Django==3.1.5
 django-bootstrap4==2.3.1
+future==0.18.2
 gunicorn==20.0.4
+html5lib==1.1
 kombu==5.0.2
 Pillow==8.1.0
 prompt-toolkit==3.0.16
 psycopg2==2.8.6
+PyPDF2==1.26.0
+python-bidi==0.4.2
 pytz==2020.5
 redis==3.5.3
 reportlab==3.5.59
@@ -24,3 +29,5 @@ sqlparse==0.4.1
 static3==0.7.0
 vine==5.0.0
 wcwidth==0.2.5
+webencodings==0.5.1
+xhtml2pdf==0.2.5
