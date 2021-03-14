@@ -13,23 +13,24 @@
 
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top text-white bg-primary">
-    <a class="navbar-brand" href="#"><img src="/static/img/logo_navbar1.png" class="img-fluid animated" alt=""></a>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top text-white" style="background-color:#026aa7;">
+    <a class="navbar-brand" href="#"><img src="/static/img/logo.png" class="img-fluid animated" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link text-white" href=""><i class="fas fa-home" ></i> Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{% url 'home' %}"><i class="fas fa-home"></i> Home <span
+                        class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="accounts/cadastrar/"><i class="fas fa-user-plus"></i> Cadastra-se <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{% url 'cadastrar' %}"><i class="fas fa-user-plus"></i> Cadastra-se
+                    <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="accounts/login/"><i class="fas fa-sign-in-alt"></i> Entrar</a>
+                <a class="nav-link text-white" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Entrar</a>
             </li>
 
         </ul>
@@ -40,7 +41,7 @@
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron" style="height: 350px;">
-        <div class="container" style="margin-top: 20px">
+        <div class="container" style="margin-top: 30px">
             <h1 class="display-3">Seja Bem vindo, </h1>
             <p><h5>ao Sistema de Gerenciamento de Orientações.</h5></p>
             <p>Aqui você faz o Gerenciamento de suas orientações de forma pratica e facil.</p>
@@ -51,17 +52,17 @@
         <!-- Example row of columns -->
         <div class="row">
             <div class="col-md-4">
-                <h2>Porque utilizar</h2>
+                <h2>Porque utilizar ? </h2>
                 <p>Porque ele possibilitará um maior controle em relação as orientações de Trabalhos de Conclusão de
-                    Cursos (TCCs), Artigos, Estágios, Projetos de Integrador e de Pesquisas. </p>
+                    Cursos (TCCs), Artigos, Estágios, Projetos Integradores e de Pesquisas. </p>
             </div>
             <div class="col-md-4">
-                <h2>Como utilizar</h2>
+                <h2>Como utilizar ? </h2>
                 <p>Para acessar todas as funcionalidades do SIGO - Sistema de Gerenciamento de Orientações, você precisa
                     realizar um simples cadastro. </p>
             </div>
             <div class="col-md-4">
-                <h2>Como se cadastrar</h2>
+                <h2>Como se cadastrar ? </h2>
                 <p>Para realizar seu cadastro vá até a barra superior, clique no nome Cadastrar e informe os dados
                     solicitados pelo sistema. </p>
             </div>
