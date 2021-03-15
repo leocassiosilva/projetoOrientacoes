@@ -1,18 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 {% load bootstrap4 %}
 {% load static %}
-<html lang="pt">
-
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>SiGO - Pagina Inicial</title>
-    {% bootstrap_css %}
-    <link href="{% static 'css/all.css' %}" rel="stylesheet">
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Olá, mundo!</title>
 </head>
-
 <body>
-
 <nav class="navbar navbar-expand-md navbar-dark fixed-top text-white" style="background-color:#026aa7;">
     <a class="navbar-brand" href="#"><img src="/static/img/logo.png" class="img-fluid animated" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -37,55 +38,59 @@
     </div>
 </nav>
 
-<main role="main">
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron" style="height: 350px;">
-        <div class="container" style="margin-top: 30px">
-            <h1 class="display-3">Seja Bem vindo, </h1>
-            <p><h5>ao Sistema de Gerenciamento de Orientações.</h5></p>
-            <p>Aqui você faz o Gerenciamento de suas orientações de forma pratica e facil.</p>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron" style="height: 350px;">
+    <div class="container" style="margin-top: 30px">
+        <h1 class="display-3">Seja Bem vindo, </h1>
+        <p><h5>ao Sistema de Gerenciamento de Orientações.</h5></p>
+        <p>Aqui você faz o Gerenciamento de suas orientações de forma pratica e facil.</p>
+    </div>
+</div>
+
+<div class="container" style="height: 270px;">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Porque utilizar ? </h2>
+            <p>Porque ele possibilitará um maior controle em relação as orientações de Trabalhos de Conclusão de
+                Cursos (TCCs), Artigos, Estágios, Projetos Integradores e de Pesquisas. </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Como utilizar ? </h2>
+            <p>Para acessar todas as funcionalidades do SIGO - Sistema de Gerenciamento de Orientações, você precisa
+                realizar um simples cadastro. </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Como se cadastrar ? </h2>
+            <p>Para realizar seu cadastro vá até a barra superior, clique no nome Cadastrar e informe os dados
+                solicitados pelo sistema. </p>
         </div>
     </div>
 
-    <div class="container" style="height: 270px;">
-        <!-- Example row of columns -->
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Porque utilizar ? </h2>
-                <p>Porque ele possibilitará um maior controle em relação as orientações de Trabalhos de Conclusão de
-                    Cursos (TCCs), Artigos, Estágios, Projetos Integradores e de Pesquisas. </p>
-            </div>
-            <div class="col-md-4">
-                <h2>Como utilizar ? </h2>
-                <p>Para acessar todas as funcionalidades do SIGO - Sistema de Gerenciamento de Orientações, você precisa
-                    realizar um simples cadastro. </p>
-            </div>
-            <div class="col-md-4">
-                <h2>Como se cadastrar ? </h2>
-                <p>Para realizar seu cadastro vá até a barra superior, clique no nome Cadastrar e informe os dados
-                    solicitados pelo sistema. </p>
-            </div>
-        </div>
+    <hr>
+</div> <!-- /container -->
+<!-- Footer -->
+<footer class="bg-light text-center text-lg-start" style="margin-top:100px;">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
 
-        <hr>
-
-    </div> <!-- /container -->
-
-</main>
-
-<footer class="container">
-    <p>©VaiDarCerto System 2020-2021</p>
 </footer>
+<!-- Footer -->
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+<!-- JavaScript (Opcional) -->
+<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-
-{% bootstrap_javascript jquery='full' %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 <loom-container id="lo-engage-ext-container">
     <div></div>
