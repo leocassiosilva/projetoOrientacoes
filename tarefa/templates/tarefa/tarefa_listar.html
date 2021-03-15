@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}SiGO - Cadastro de Trabalhos{% endblock title %}
-{% block card-title %}Lista de Trabalhos{% endblock card-title %}
 
 {% block content %}
+{% if object_list %}
 {%for trab in trabalho%}
 {% block titlePagina %}<h1 class="mt-4">Lista de Tarefas - {{ trab.nome }}</h1>{% endblock titlePagina %}
 {% endfor %}
@@ -30,7 +30,7 @@
                 <div class="btn-group float-right">
                     <a class="btn mr-6" style="color:black;"
                        href="{%url 'tarefa_detalhe' tarefa.id%}"><i class="fas fa-eye"
-                                                                        title="Detalhes do Tarefa"></i></a>
+                                                                    title="Detalhes do Tarefa"></i></a>
                 </div>
 
             </div>
@@ -41,5 +41,12 @@
 
         </div>
     </div>
-    {% endfor %}
-    {% endblock %}
+</div>
+{% endfor %}
+{% else %}
+
+{%for trab in trabalho%}
+<h3 class="text-center">Você não possui tarefas para o trabalhoi {{ trab.nome }}!</h3>
+{% endfor %}
+{% endif %}
+{% endblock %}

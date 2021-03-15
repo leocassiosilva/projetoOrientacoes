@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block title %}SiGO - Cadastro de Trabalhos{% endblock title %}
-{% block card-title %}Lista de Trabalhos{% endblock card-title %}
 
 {% block content %}
+{% if object_list %}
 {% block titlePagina %}<h1 class="mt-4">Trabalhos</h1>{% endblock titlePagina %}
+
+{% block card-title %}Lista de Trabalhos{% endblock card-title %}
 {%for trabalho in object_list%}
 <div class="card" style="margin-top:20px;">
     <div class="card-header">
@@ -14,7 +16,7 @@
             </div>
             <div class="col-6">
                 <div class="btn-group float-right">
-                    <a class="btn mr-6"  style="color:black;" href="{%url 'trabalho_delete' trabalho.id%}">
+                    <a class="btn mr-6" style="color:black;" href="{%url 'trabalho_delete' trabalho.id%}">
                         <i class="fas fa-trash-alt" title="Excluir Trabalho"></i></a>
                 </div>
                 <div class="btn-group float-right">
@@ -24,7 +26,8 @@
 
                 <div class="btn-group float-right">
                     <a class="btn mr-6" style="color:black;"
-                       href="{%url 'trabalho_detalhe' trabalho.id%}"><i class="fas fa-eye" title="Detalhes do Trabalho"></i></a>
+                       href="{%url 'trabalho_detalhe' trabalho.id%}"><i class="fas fa-eye"
+                                                                        title="Detalhes do Trabalho"></i></a>
                 </div>
             </div>
         </div>
@@ -49,5 +52,8 @@
     </div>
 </div>
 {% endfor %}
+{% else %}
+<h3 class="text-center">Você não possui trabalhos!</h3>
 
+{% endif %}
 {% endblock %}
