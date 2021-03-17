@@ -1,1 +1,1 @@
-web: gunicorn despesasPessoais.wsgi --log-file -
+web: gunicorn projetoOrientaoes.wsgi --log-file -
