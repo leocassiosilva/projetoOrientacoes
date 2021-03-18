@@ -1,1 +1,1 @@
-web: gunicorn projetoOrientaoes.wsgi --log-file -
+web:gunicorn projetoOrientacoes.wsgi
