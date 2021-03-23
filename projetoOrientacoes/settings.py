@@ -11,11 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-
-from decouple import config
 from django.contrib.messages import constants as messages
 import django_heroku
-from dj_database_url import parse as dburl
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,17 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
-#SECRET_KEY = ')vr%)pp)bomt+q6zuvsw_7$_bvfwybva4%_!kv&llo3r3$4u*r'
+SECRET_KEY = ')vr%)pp)bomt+q6zuvsw_7$_bvfwybva4%_!kv&llo3r3$4u*r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
 
-#DEBUG = True
-
-SECRET_KEY = config ('SECRET_KEY')
-DEBUG = config ('DEBUG', default = False, cast = bool)
-
-ALLOWED_HOSTS = ['https://gerencimento-orientacoes.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -90,10 +82,16 @@ WSGI_APPLICATION = 'projetoOrientacoes.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-
-DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'orientacoes',
+        'USER': 'postgres',
+        'PASSWORD': '123',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -130,12 +128,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 # STATIC_ROOT = 'staticfiles'
-#STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-STATIC_ROOT = os.path.join (BASE_DIR, 'staticfiles')
-
 
 # Login e Logout#
 LOGIN_URL = 'login'
